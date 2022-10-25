@@ -8,17 +8,8 @@ namespace Lab1
       Rating = rating;
       IsWin = isWin;
     }
-    public string OpponentName
-    {
-      get;
-    }
-    public int Rating
-    {
-      get;
-    }
-    public bool IsWin
-    {
-      get;
-    }
+    public string OpponentName { get; }
+    public int Rating { get; }
+    public bool IsWin { get; }
   }
 }
