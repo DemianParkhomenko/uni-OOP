@@ -1,6 +1,6 @@
 ﻿namespace Lab1
 {
-  class Programm
+  class Program
   {
     static void Main(string[] args)
     {

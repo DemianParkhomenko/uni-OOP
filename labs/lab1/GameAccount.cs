@@ -3,8 +3,6 @@ namespace Lab1
   class GameAccount
   {
     static readonly int minimalRating = 1;
-
-    decimal gamesCount = 0;
     decimal currentRating = minimalRating;
     List<StatRecord> stats = new List<StatRecord>();
 
@@ -27,7 +25,7 @@ namespace Lab1
     {
       get
       {
-        return this.gamesCount;
+        return stats.Count();
       }
     }
 
@@ -42,7 +40,6 @@ namespace Lab1
       checkRatingForGame(rating);
       this.currentRating += rating;
       stats.Add(new StatRecord(opponentName, rating, true));
-      this.gamesCount++;
     }
 
     public void LoseGame(string opponentName, int rating)
@@ -54,7 +51,6 @@ namespace Lab1
         this.currentRating -= rating;
 
       this.stats.Add(new StatRecord(opponentName, rating, false));
-      this.gamesCount++;
     }
 
     public List<StatRecord> GetStats()
