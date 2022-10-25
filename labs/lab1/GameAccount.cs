@@ -6,6 +6,7 @@ namespace Lab1
 
     static readonly int _minimalRating = 1;
     decimal _currentRating = _minimalRating;
+    decimal _previousRating = _minimalRating;
 
     public string UserName { get; set; }
 
@@ -18,27 +19,44 @@ namespace Lab1
       UserName = username;
     }
 
-    public void WinGame(string opponentName, int rating)
+    public void WinGame(string opponentName, decimal rating)
     {
-      throwNegativeRating(rating);
-      _currentRating += rating;
+      throwIfNegativeRating(rating);
+      updateRating(_currentRating + rating);
       _stats.Add(new StatRecord(opponentName, rating, true));
     }
 
-    public void LoseGame(string opponentName, int rating)
+    public void LoseGame(string opponentName, decimal rating)
     {
-      throwNegativeRating(rating);
+      throwIfNegativeRating(rating);
       if (_currentRating - rating < _minimalRating)
-        _currentRating = _minimalRating;
+      {
+        updateRating(_minimalRating);
+      }
       else
-        _currentRating -= rating;
-
+      {
+        updateRating(_currentRating - rating);
+      }
       _stats.Add(new StatRecord(opponentName, rating, false));
+    }
+
+    public void CancelLastGame()
+    {
+      if (_stats.Count() == 0)
+        return;
+      var lastRecord = _stats.Last();
+      if (lastRecord.IsWin)
+        updateRating(_currentRating - lastRecord.Rating);
+      else if (_previousRating != _minimalRating)
+        updateRating(_currentRating + lastRecord.Rating);
+
+      _stats.RemoveAt(_stats.Count() - 1);
     }
 
     public List<StatRecord> GetStats()
     {
-      return _stats.ConvertAll(stat => new StatRecord(stat.OpponentName, stat.Rating, stat.IsWin));
+      return _stats.ConvertAll(stat =>
+                 new StatRecord(stat.OpponentName, stat.Rating, stat.IsWin));
     }
 
     public void WriteStats()
@@ -56,7 +74,13 @@ namespace Lab1
       }
     }
 
-    private void throwNegativeRating(int rating)
+    void updateRating(decimal newRating)
+    {
+      _previousRating = _currentRating;
+      _currentRating = newRating;
+    }
+
+    void throwIfNegativeRating(decimal rating)
     {
       if (rating < 0)
         throw new ArgumentOutOfRangeException("Rating", "Game rating cannot be negative");
