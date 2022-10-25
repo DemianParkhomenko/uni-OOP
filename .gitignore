@@ -1,3 +1,4 @@
+*.temp
 # User-specific files
 *.suo
 *.user
