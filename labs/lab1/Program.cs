@@ -6,7 +6,7 @@
     {
       GameAccount account1 = new GameAccount("John");
       GameAccount account2 = new GameAccount("Jane");
-      int gamesCount = 4;
+      int gamesCount = 10;
       for (int i = 0; i < gamesCount; i++)
       {
         Game.Random(account1, account2);
