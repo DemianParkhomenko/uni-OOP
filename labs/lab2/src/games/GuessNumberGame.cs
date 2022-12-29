@@ -13,8 +13,8 @@ public class GuessNumberGame : Game
   {
     Console.WriteLine("❔ Guess a number game ❔");
     string whatToEnter = $"a positive number less than {MAX_INPUT}";
-    int xFromAccount1 = base.askAndGetFromPlayer<int>(whatToEnter, account1, validateInput);
-    int xFromAccount2 = base.askAndGetFromPlayer<int>(whatToEnter, account2, validateInput);
+    int xFromAccount1 = InteractWithPlayer.AskAndGetFromPlayer<int>(whatToEnter, account1, validateInput);
+    int xFromAccount2 = InteractWithPlayer.AskAndGetFromPlayer<int>(whatToEnter, account2, validateInput);
 
     int x = base.random.Next(MAX_INPUT);
     int abs1 = Math.Abs(x - xFromAccount1);

@@ -9,32 +9,6 @@ public abstract class Game
   abstract public void Play(Account account1, Account account2,
   BalanceTypes balanceType, decimal points);
 
-  void writeTryAgainMessage()
-  {
-    Console.WriteLine("❌ Invalid input. Let's try again...");
-  }
-
-  void askFor(string whatToEnter, Account player)
-  {
-    Console.WriteLine($"{player.Name} enter " + whatToEnter + "...");
-  }
-
-  T getFromPlayer<T>(Account account, ValidatePlayerInput<T> validate)
-  {
-    try
-    {
-      string line = Console.ReadLine() ?? "";
-      T input = (T)Convert.ChangeType(line, typeof(T));
-      if (validate(input)) return input;
-      writeTryAgainMessage();
-      return getFromPlayer<T>(account, validate);
-    }
-    catch
-    {
-      writeTryAgainMessage();
-      return getFromPlayer<T>(account, validate);
-    }
-  }
 
   virtual protected void rewardPlayers(BalanceTypes balanceType, decimal points,
                   Account winner, Account loser)
@@ -61,10 +35,5 @@ public abstract class Game
        + $" Loser: {loser.Name}({loser.Email})");
   }
 
-  protected T askAndGetFromPlayer<T>(string whatToEnter, Account player, ValidatePlayerInput<T> validate)
-  {
-    askFor(whatToEnter, player);
-    return getFromPlayer<T>(player, validate);
-  }
 }
 
