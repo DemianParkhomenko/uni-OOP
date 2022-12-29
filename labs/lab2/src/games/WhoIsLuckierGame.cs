@@ -6,7 +6,7 @@ namespace Lab2
     public override void Play(Account account1, Account account2,
     BalanceTypes balanceType, decimal points)
     {
-      Console.WriteLine("Who is luckier game");
+      Console.WriteLine("🎲 Who is luckier game 🎲");
       if (base.randomBool())
       {
         Console.WriteLine($"{account1.Name} is luckier");

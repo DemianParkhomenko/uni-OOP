@@ -18,7 +18,7 @@ namespace Lab2
       }
     }
 
-    public List<Game> AllGamesList()
+    public List<Game> AllGames()
     {
       var list = new List<Game>();
       foreach (Games game in Enum.GetValues(typeof(Games)))

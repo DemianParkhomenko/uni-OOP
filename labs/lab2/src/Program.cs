@@ -19,7 +19,7 @@
           );
 
       GameCreator gameCreator = new GameCreator();
-      var games = gameCreator.AllGamesList();
+      var games = gameCreator.AllGames();
       foreach (Game game in games)
       {
         game.Play(demian, john, BalanceTypes.main, 100);

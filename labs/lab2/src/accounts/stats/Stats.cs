@@ -16,7 +16,7 @@ namespace Lab2
       Console.WriteLine($"📅 Date: {DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss")}");
       Console.WriteLine($"🎲 Games count:{storage.Count}");
       Console.WriteLine($"💰 Main balance:{mainBalance.Points}");
-      Console.WriteLine($"🫰 Training balance:{trainingBalance.Points}");
+      Console.WriteLine($"🫰  Training balance:{trainingBalance.Points}");
       if (storage.Count != 0)
       {
         Console.WriteLine("{0}\t{1}\t{2}\t{3}", "Index", "Rating", "Result", "Opponent");
