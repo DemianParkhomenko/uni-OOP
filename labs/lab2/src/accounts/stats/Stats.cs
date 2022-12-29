@@ -9,14 +9,14 @@ namespace Lab2
       storage.Add(stat);
     }
 
-
     public void Write(string name, Balance mainBalance, Balance trainingBalance)
     {
-      Console.WriteLine($"----------------{name}----------------");
-      Console.WriteLine($"Date: {DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss")}");
-      Console.WriteLine($"Games count:{storage.Count}");
-      Console.WriteLine($"Main balance:{mainBalance.Points}");
-      Console.WriteLine($"Training balance:{trainingBalance.Points}");
+      Console.WriteLine();
+      Console.WriteLine($"📃 ----------------{name}----------------");
+      Console.WriteLine($"📅 Date: {DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss")}");
+      Console.WriteLine($"🎲 Games count:{storage.Count}");
+      Console.WriteLine($"💰 Main balance:{mainBalance.Points}");
+      Console.WriteLine($"🫰 Training balance:{trainingBalance.Points}");
       if (storage.Count != 0)
       {
         Console.WriteLine("{0}\t{1}\t{2}\t{3}", "Index", "Rating", "Result", "Opponent");
@@ -26,6 +26,7 @@ namespace Lab2
                            storage[i].IsWin ? "Win" : "Lose", storage[i].OpponentName);
         }
       }
+      Console.WriteLine();
     }
   }
 }

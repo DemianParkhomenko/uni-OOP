@@ -5,8 +5,18 @@
     static void Main(string[] args)
     {
       AccountCreator defaultCreator = new DefaultAccountCreator();
-      Account demian = defaultCreator.createAccount("Demian", "cucumber@gmail.com", AccountTypes.standard);
-      Account john = defaultCreator.createAccount("John", "tomato@gmail.com", AccountTypes.standard);
+
+      Account demian = defaultCreator.createAccount(
+          "Demian",
+          "cucumber@gmail.com",
+          AccountTypes.standard
+          );
+
+      Account john = defaultCreator.createAccount(
+          "John",
+          "tomato@gmail.com",
+          AccountTypes.standard
+          );
 
       GameCreator gameCreator = new GameCreator();
       var games = gameCreator.AllGamesList();
@@ -20,3 +30,4 @@
     }
   }
 }
+
