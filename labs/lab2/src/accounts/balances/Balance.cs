@@ -16,23 +16,16 @@ public class Balance
     Multiplier = multiplier;
   }
 
-  virtual public void Add(decimal points)
+  public virtual void Add(decimal points)
   {
     Points += points * Multiplier;
   }
 
-  virtual public void Subtract(decimal points)
+  public virtual void Subtract(decimal points)
   {
-    throwIfNegative(points);
+    Utils.throwIfNegative(points, "Game points cannot be negative");
     decimal nextPoints = Points - points;
     if (nextPoints >= minimalPoints) Points = nextPoints;
   }
 
-  protected void throwIfNegative(decimal points)
-  {
-    if (points < 0)
-    {
-      throw new ArgumentOutOfRangeException("Points", "Game points cannot be negative");
-    }
-  }
 }
