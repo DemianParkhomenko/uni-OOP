@@ -2,14 +2,13 @@ namespace Lab2
 {
   public class GuessNumberGame : Game
   {
-    Random random = new Random();
     const int MAX_X = 1000;
 
     public override void Play(Account account1, Account account2,
     BalanceTypes balanceType, decimal points)
     {
       Console.WriteLine("Guess a number game");
-      int x = random.Next(MAX_X);
+      int x = base.random.Next(MAX_X);
       int xFromAccount1 = getConsoleIntFromPlayer(account1);
       int xFromAccount2 = getConsoleIntFromPlayer(account2);
 
@@ -19,6 +18,7 @@ namespace Lab2
       {
         Console.WriteLine("Wow, a draw. Let's play again");
         Play(account1, account2, balanceType, points);
+        return;
       }
       if (abs1 < abs2)
       {
