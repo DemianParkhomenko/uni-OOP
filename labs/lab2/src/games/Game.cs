@@ -28,12 +28,5 @@ public abstract class Game
   {
     return random.Next(2) == 0;
   }
-
-  protected void writeWinnerLoser(Account winner, Account loser)
-  {
-    Console.WriteLine($"Winner: {winner.Name}({winner.Email})."
-       + $" Loser: {loser.Name}({loser.Email})");
-  }
-
 }
 

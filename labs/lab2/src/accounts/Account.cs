@@ -7,10 +7,8 @@ public enum BalanceTypes
 
 public class Account
 {
-  Balance mainBalance;
-  Balance trainingBalance;
 
-  Stats stats = new();
+  Stats stats;
   public string Name { get; set; }
   public string Email { get; }
 
@@ -18,26 +16,21 @@ public class Account
   {
     Name = name;
     Email = email;
-    mainBalance = main;
-    trainingBalance = training;
+    stats = new Stats(main, training);
   }
 
   public void History()
   {
-    stats.Write(Name, mainBalance, trainingBalance);
+    //TODO InteractWithPlayer.WriteAccountHistory(Name, mainBalance, trainingBalance, stats.Storage);
   }
 
   public void onWin(BalanceTypes balanceType, decimal points, string opponentName)
   {
-    if (balanceType == BalanceTypes.main) mainBalance.Add(points);
-    if (balanceType == BalanceTypes.training) trainingBalance.Add(points);
     stats.Add(new Stat(opponentName, points, true, balanceType));
   }
 
   public void onLose(BalanceTypes balanceType, decimal points, string opponentName)
   {
-    if (balanceType == BalanceTypes.main) mainBalance.Subtract(points);
-    if (balanceType == BalanceTypes.training) trainingBalance.Subtract(points);
     stats.Add(new Stat(opponentName, points, false, balanceType));
   }
 }

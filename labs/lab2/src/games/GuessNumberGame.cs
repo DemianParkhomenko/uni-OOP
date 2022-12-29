@@ -28,12 +28,12 @@ public class GuessNumberGame : Game
     if (abs1 < abs2)
     {
       rewardPlayers(balanceType, points, winner: account1, loser: account2);
-      base.writeWinnerLoser(account1, account2);
+      InteractWithPlayer.WriteWinnerLoser(winner: account1, loser: account2);
     }
     else
     {
       rewardPlayers(balanceType, points, winner: account2, loser: account1);
-      base.writeWinnerLoser(account2, account1);
+      InteractWithPlayer.WriteWinnerLoser(winner: account2, loser: account1);
     }
     Console.WriteLine($"Number was {x}");
   }
