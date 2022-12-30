@@ -2,7 +2,7 @@ namespace Lab2;
 
 public static class InteractWithPlayer
 {
-  static void writeTryAgainMessage()
+  public static void WriteTryAgainMessage()
   {
     Console.WriteLine("❌ Invalid input. Let's try again...");
   }
@@ -21,12 +21,12 @@ public static class InteractWithPlayer
       string line = Console.ReadLine() ?? "";
       T input = (T)Convert.ChangeType(line, typeof(T));
       if (validate(input)) return input;
-      writeTryAgainMessage();
+      WriteTryAgainMessage();
       return GetFromPlayer<T>(account, validate);
     }
     catch
     {
-      writeTryAgainMessage();
+      WriteTryAgainMessage();
       return GetFromPlayer<T>(account, validate);
     }
   }
@@ -44,17 +44,17 @@ public static class InteractWithPlayer
     Console.WriteLine(gameName);
   }
 
-  public static void WriteAdditionalMessage(string message)
+  public static void Write<T>(T message, ConsoleColor color = ConsoleColor.Green)
   {
-    Console.ForegroundColor = ConsoleColor.Green;
-    Console.WriteLine(message);
+    Console.ForegroundColor = color;
+    Console.Write($"{message}");
   }
 
   public static void WriteWinnerLoser(Account winner, Account loser)
   {
     Console.ForegroundColor = ConsoleColor.White;
-    Console.WriteLine($"Winner: {winner.Name}({winner.Email})."
-       + $" Loser: {loser.Name}({loser.Email})");
+    Console.WriteLine($"🏆 Winner: {winner.Name}({winner.Email})."
+       + $"❤‍🩹 Loser: {loser.Name}({loser.Email})");
   }
 
   public static void WriteAccountHistory(Account account, Stats stats)

@@ -21,7 +21,7 @@ public class GuessNumberGame : Game
     int abs2 = Math.Abs(x - xFromAccount2);
     if (abs1 == abs2)
     {
-      InteractWithPlayer.WriteAdditionalMessage("🤯Wow, a draw. Let's play again");
+      InteractWithPlayer.Write("🤯Wow, a draw. Let's play again");
       Play(account1, account2, balanceType, points);
       return;
     }
@@ -35,6 +35,6 @@ public class GuessNumberGame : Game
       rewardPlayers(balanceType, points, winner: account2, loser: account1);
       InteractWithPlayer.WriteWinnerLoser(winner: account2, loser: account1);
     }
-    InteractWithPlayer.WriteAdditionalMessage($"Number was {x}");
+    InteractWithPlayer.Write($"Number was {x}\n");
   }
 }

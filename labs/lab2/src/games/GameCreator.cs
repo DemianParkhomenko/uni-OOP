@@ -1,8 +1,9 @@
 namespace Lab2;
 public enum Games
 {
-  GuessNumber,
-  WhoIsLuckier
+  // GuessNumber,
+  // WhoIsLuckier,
+  TicTacToe
 }
 
 public class GameCreator
@@ -11,8 +12,9 @@ public class GameCreator
   {
     switch (gameToCreate)
     {
-      case Games.GuessNumber: return new GuessNumberGame();
-      case Games.WhoIsLuckier: return new WhoIsLuckierGame();
+      // case Games.GuessNumber: return new GuessNumberGame();
+      // case Games.WhoIsLuckier: return new WhoIsLuckierGame();
+      case Games.TicTacToe: return new TicTacToeGame();
       default: return new WhoIsLuckierGame();
     }
   }
