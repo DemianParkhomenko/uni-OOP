@@ -38,6 +38,18 @@ public static class InteractWithPlayer
     return GetFromPlayer<T>(player, validate);
   }
 
+  public static void WriteGameName(string gameName)
+  {
+    Console.ForegroundColor = ConsoleColor.White;
+    Console.WriteLine(gameName);
+  }
+
+  public static void WriteAdditionalMessage(string message)
+  {
+    Console.ForegroundColor = ConsoleColor.Green;
+    Console.WriteLine(message);
+  }
+
   public static void WriteWinnerLoser(Account winner, Account loser)
   {
     Console.ForegroundColor = ConsoleColor.White;
@@ -45,16 +57,16 @@ public static class InteractWithPlayer
        + $" Loser: {loser.Name}({loser.Email})");
   }
 
-  public static void WriteAccountHistory(string name, Balance mainBalance,
-  Balance trainingBalance, List<Stat> storage)
+  public static void WriteAccountHistory(Account account, Stats stats)
   {
     Console.ForegroundColor = ConsoleColor.DarkMagenta;
     Console.WriteLine();
-    Console.WriteLine($"📃 ----------------{name}----------------");
-    Console.WriteLine($"📅 Date: {DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss")}");
-    Console.WriteLine($"🎲 Games count:{storage.Count}");
-    Console.WriteLine($"💰 Main balance:{mainBalance.Points}");
-    Console.WriteLine($"🫰  Training balance:{trainingBalance.Points}");
+    Console.WriteLine($"📃 ----------------{account.Name}----------------");
+    Console.WriteLine($"📅 Date: {DateTime.Now.ToString("HH:mm:ss dd-MM-yyyy")}");
+    Console.WriteLine($"🎲 Games: {stats.TotalPlayedGames}");
+    Console.WriteLine($"💰 Main balance:{stats.PointsOnBalance(BalanceTypes.main)}");
+    Console.WriteLine($"🫰  Training balance:{stats.PointsOnBalance(BalanceTypes.training)}");
+    var storage = stats.Storage;
     if (storage.Count != 0)
     {
       Console.WriteLine("{0}\t{1}\t{2}\t{3}", "Index", "Rating", "Result", "Opponent");

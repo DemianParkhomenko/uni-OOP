@@ -21,16 +21,16 @@ public class Account
 
   public void History()
   {
-    //TODO InteractWithPlayer.WriteAccountHistory(Name, mainBalance, trainingBalance, stats.Storage);
+    InteractWithPlayer.WriteAccountHistory(this, stats);
   }
 
   public void onWin(BalanceTypes balanceType, decimal points, string opponentName)
   {
-    stats.Add(new Stat(opponentName, points, true, balanceType));
+    stats.Add(new Stat(opponentName, points, isWin: true, balanceType));
   }
 
   public void onLose(BalanceTypes balanceType, decimal points, string opponentName)
   {
-    stats.Add(new Stat(opponentName, points, false, balanceType));
+    stats.Add(new Stat(opponentName, points, isWin: false, balanceType));
   }
 }

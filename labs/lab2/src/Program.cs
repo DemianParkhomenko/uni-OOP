@@ -24,7 +24,6 @@ class Program
       game.Play(demian, john, BalanceTypes.main, 100);
       demian.History();
       john.History();
-      Console.Write("\n\n\n");
     }
   }
 }
