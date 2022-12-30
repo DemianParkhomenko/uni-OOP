@@ -11,11 +11,11 @@ public class RandomInitialRewardAccountCreator : DefaultAccountCreator
     if (accountType == AccountTypes.premium)
     {
       return new Account(name, email,
-      base.createMainBalance(PREMIUM_INITIAL_POINTS_MAIN_BALANCE + MAX_INITIAL_REWARD, null),
-      base.createTrainingBalance(PREMIUM_INITIAL_POINTS_TRAINING_BALANCE + MAX_INITIAL_REWARD, null));
+      base.createMainBalance(PREMIUM_INITIAL_POINTS_MAIN_BALANCE + MAX_INITIAL_REWARD),
+      base.createTrainingBalance(PREMIUM_INITIAL_POINTS_TRAINING_BALANCE + MAX_INITIAL_REWARD));
     }
     return new Account(name, email,
-    createMainBalance(DEFAULT_INITIAL_POINTS_MAIN_BALANCE + MAX_INITIAL_REWARD / 2, null),
-    createTrainingBalance(DEFAULT_INITIAL_POINTS_TRAINING_BALANCE + MAX_INITIAL_REWARD, null));
+    createMainBalance(DEFAULT_INITIAL_POINTS_MAIN_BALANCE + MAX_INITIAL_REWARD / 2),
+    createTrainingBalance(DEFAULT_INITIAL_POINTS_TRAINING_BALANCE + MAX_INITIAL_REWARD));
   }
 }

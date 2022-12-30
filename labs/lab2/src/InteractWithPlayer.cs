@@ -59,7 +59,7 @@ public static class InteractWithPlayer
 
   public static void WriteAccountHistory(Account account, Stats stats)
   {
-    Console.ForegroundColor = ConsoleColor.DarkMagenta;
+    Console.ForegroundColor = ConsoleColor.DarkYellow;
     Console.WriteLine();
     Console.WriteLine($"📃 ----------------{account.Name}----------------");
     Console.WriteLine($"📅 Date: {DateTime.Now.ToString("HH:mm:ss dd-MM-yyyy")}");
