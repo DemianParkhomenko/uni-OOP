@@ -9,6 +9,7 @@ public class Balance
     protected set;
   }
 
+  string throwIfNegativeMessage = "Game points cannot be negative";
   public Balance(decimal initialPoints, decimal minimalPoints, decimal multiplier)
   {
     Points = initialPoints;
@@ -18,12 +19,13 @@ public class Balance
 
   public virtual void Add(decimal points)
   {
+    Utils.throwIfNegative(points, throwIfNegativeMessage);
     Points += points * Multiplier;
   }
 
   public virtual void Subtract(decimal points)
   {
-    Utils.throwIfNegative(points, "Game points cannot be negative");
+    Utils.throwIfNegative(points, throwIfNegativeMessage);
     decimal nextPoints = Points - points;
     if (nextPoints >= minimalPoints) Points = nextPoints;
   }

@@ -2,6 +2,12 @@ namespace Lab2;
 
 public class TicTacToeGame : Game
 {
+
+  protected bool isWinner()
+  {
+    return false;
+  }
+
   protected void nextMove(Account account)
   {
 

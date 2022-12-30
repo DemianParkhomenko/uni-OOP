@@ -20,7 +20,7 @@ public abstract class Game
     }
     catch (Exception ex)
     {
-      Console.WriteLine($"Exception on rewarding players", ex);
+      InteractWithPlayer.WriteExceptionMessage($"Exception on rewarding players \n {ex}");
     }
   }
 

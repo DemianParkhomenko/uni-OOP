@@ -78,4 +78,10 @@ public static class InteractWithPlayer
     }
     Console.WriteLine();
   }
+
+  public static void WriteExceptionMessage(string message)
+  {
+    Console.ForegroundColor = ConsoleColor.Red;
+    Console.WriteLine(message);
+  }
 }
