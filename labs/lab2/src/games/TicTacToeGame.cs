@@ -14,6 +14,18 @@ public class TicTacToeGame : Game
     return Array.TrueForAll(arr, (v) => str.Equals(v));
   }
 
+  protected bool isBoardFulfilled()
+  {
+    foreach (string str in board)
+    {
+      if (!zero.Equals(str) && !cross.Equals(str))
+      {
+        return false;
+      }
+    }
+    return true;
+  }
+
   protected bool isWinner(string crossOrZero)
   {
     var rows = new string[boardSize];
@@ -90,10 +102,16 @@ public class TicTacToeGame : Game
     }
   }
 
-  // return true when isWinner here
+  // return true when game is ended
   protected bool move(Account whoMoves, string symbolOfWhoMoves,
   Account opponent, BalanceTypes balanceType, decimal points)
   {
+    if (isBoardFulfilled())
+    {
+      InteractWithPlayer.Write("🤝 It is the draw 🤝\n");
+      return true;
+    }
+
     fulfilField(whoMoves, symbolOfWhoMoves);
     writeBoard();
 
