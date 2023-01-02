@@ -1,5 +1,7 @@
 namespace Lab2;
 
+public delegate bool ValidatePlayerInput<T>(T input);
+
 public static class InteractWithPlayer
 {
   public static void WriteTryAgainMessage()
@@ -15,7 +17,7 @@ public static class InteractWithPlayer
 
   public static T GetFromPlayer<T>(Account account, ValidatePlayerInput<T> validate)
   {
-    try
+   try
     {
       Console.ForegroundColor = ConsoleColor.Yellow;
       string line = Console.ReadLine() ?? "";

@@ -1,7 +1,5 @@
 namespace Lab2;
 
-public delegate bool ValidatePlayerInput<T>(T input);
-
 public abstract class Game
 {
   protected Random random = new Random();
